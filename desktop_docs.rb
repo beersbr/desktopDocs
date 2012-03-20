@@ -10,6 +10,7 @@ outputname = "index.html"
 
 # create the docs directory if it doesnt already exist
 Dir.mkdir "docs" if not(Dir.exists? "docs")
+Dir.mkdir "markdown" if not (Dir.exists? "markdown")
 
 # delete the current index.html if it exists
 File.unlink "./index.html" if (File.exists? "./index.html")
@@ -36,10 +37,13 @@ File.open("index.html", "w+"){ |html|
 		File.open("./docs/#{filename}.html", "w+"){ |fd|
 			File.open("./markdown/#{filename}.md", "r"){ |fr|
 				fd.puts HEADER.call(filename)
-
+				fdata = ""
 				while(line = fr.gets)
-					fd.puts(HtmlGen.render(line))
+					fdata += line
+					# fd.puts(HtmlGen.render(line))
 				end
+
+				fd.puts(HtmlGen.render(fdata))
 			}
 
 			fd.puts FOOTER
