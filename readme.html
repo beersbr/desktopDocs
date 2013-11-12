@@ -1,0 +1,51 @@
+<!doctype html><html><head><style>
+body{
+	font-family: verdana, sans-serif;
+	font-size: 14px;
+}
+
+code{
+	white-space: pre;
+}
+</style>
+<title>/Users/brettbeers/Projects/giantsource/odin/branches/0.0.1/README.md</title></head><body><div><sub>[<a href="javascript:window.history.back();">Back</a>]</sub></div>
+<h1>ODIN Documentation</h1>
+
+<h2>Intro</h2>
+
+<p>This is just a place to put some notes for the project. Hopefully the presence of this document steers future programmers
+from having a bad time.</p>
+
+<h2>Templates</h2>
+
+<p>Templates are to be put in the &#39;__library/__template/&#39; directory and be named anything that adheres to the following
+convention. This allows them to easily be parsed by humans.</p>
+
+<p><code>
+  [name]Template.html
+</code></p>
+
+<p>Templates are rendered using <a href="https://github.com/janl/mustache.js">Mustache.js</a>. Templates in Odin should be accessed
+using the TEMPLATES module which ensures that they are cached and not grabbed multiple times.</p>
+
+<p>Templates can be used in conjunction with <strong>controllers</strong>.</p>
+
+<h2>Controllers</h2>
+
+<p>Contollers, like templates, are kept in the &#39;__library/__template/&#39; directory. They should be named anything that
+adheres to the follwing convention.</p>
+
+<p>[name]Controller.js</p>
+
+<p>Furthermore, not anything can be a controller. The controller code is just an extension onto a controller object. A controller
+class should follow this convention:</p>
+
+<p><code>
+function [name](){
+    // object is the object that will be passed to the controller and then passed to the template.
+    this.beforeRender = function(object){
+      //...code...
+    }
+}
+</code></p>
+<div><sub>[<a href="javascript:window.history.back();">Back</a>]</sub></div><body></html>
